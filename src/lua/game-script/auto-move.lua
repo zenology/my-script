@@ -1,7 +1,7 @@
 --[=====[
 [[SND Metadata]]
 author: 'Zenology'
-version: 0.0.1
+version: 0.0.2
 description: Auto Move - Script for Auto Move
 plugin_dependencies:
 - vnavmesh
@@ -16,9 +16,9 @@ if IPC.vnavmesh.IsReady() then
 	else
 		yield("/vnav moveflag")
 	end
-end
 
-if not Svc.Condition[mountCondition] then
-	-- Send Page Down button
-	yield("/send NEXT")
+	if not Svc.Condition[mountCondition] then
+		-- Send Page Down button
+		yield("/send NEXT")
+	end
 end
