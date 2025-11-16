@@ -1,7 +1,7 @@
 --[=====[
 [[SND Metadata]]
 author: 'Zenology'
-version: 0.0.2
+version: 0.0.3
 description: Auto Move - Script for Auto Move
 plugin_dependencies:
 - vnavmesh
@@ -11,14 +11,18 @@ plugin_dependencies:
 local mountCondition = 4
 
 if IPC.vnavmesh.IsReady() then
+	if not Svc.Condition[mountCondition] then
+		-- Send Page Down button
+		yield("/send NEXT")
+	end
+
+	repeat
+		yield("/wait 0.25")
+	until Svc.Condition[mountCondition]
+
 	if Player.CanFly then
 		yield("/vnav flyflag")
 	else
 		yield("/vnav moveflag")
-	end
-
-	if not Svc.Condition[mountCondition] then
-		-- Send Page Down button
-		yield("/send NEXT")
 	end
 end
