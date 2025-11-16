@@ -17,7 +17,7 @@ if IPC.vnavmesh.IsReady() then
 	end
 
 	repeat
-		yield("/wait 0.25")
+		yield("/wait 0.1")
 	until Svc.Condition[mountCondition]
 
 	if Player.CanFly then
