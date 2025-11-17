@@ -1,7 +1,7 @@
 --[=====[
 [[SND Metadata]]
 author: 'Zenology'
-version: 0.0.4
+version: 0.0.5
 description: Auto Move - Script for Auto Move
 plugin_dependencies:
 - vnavmesh
